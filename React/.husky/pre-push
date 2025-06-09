@@ -1,0 +1,17 @@
+COMMITS=$(git rev-list --no-merges origin/main..HEAD)
+
+for COMMIT in $COMMITS; do
+  SIGNATURE_STATUS=$(git show --quiet --pretty=%G? "$COMMIT")
+  if [ "$SIGNATURE_STATUS" != "G" ]; then
+    echo ""
+    echo "❌ Commit $COMMIT não é assinado com GPG!"
+    echo ""
+    echo "ℹ️  Configure a assinatura automática com:"
+    echo "   git config --global commit.gpgsign true"
+    echo "   git config --global user.signingkey <seu-id-da-chave-gpg>"
+    echo ""
+    exit 1
+  fi
+done
+echo "✅ Todos os commits estão assinados com GPG."
+exit 0
