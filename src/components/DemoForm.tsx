@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 
 import { useForm } from 'react-hook-form';
@@ -23,6 +21,8 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+
+import { ChevronLeft } from './icons/chevron-left';
 
 export function DemoForm() {
   const { t } = useTranslation();
@@ -93,6 +93,7 @@ export function DemoForm() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
+                      <ChevronLeft />
                       <FormLabel>{t('form.fields.name')}</FormLabel>
                       <FormControl>
                         <Input placeholder={t('form.fields.namePlaceholder')} {...field} />
@@ -116,7 +117,7 @@ export function DemoForm() {
                           {...field}
                         />
                       </FormControl>
-                      <FormMessage />
+                      <p className="text-destructive text-sm">{t('form.errors.emailInvalid')}</p>
                     </FormItem>
                   )}
                 />
@@ -154,7 +155,7 @@ export function DemoForm() {
                 {Object.keys(errors).length > 0 && (
                   <div className="p-4 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg">
                     <h4 className="text-sm font-medium text-red-800 dark:text-red-200 mb-2">
-                      Erros de validação:
+                      {t('form.errors.title')}
                     </h4>
                     <ul className="text-sm text-red-700 dark:text-red-300 space-y-1">
                       {Object.entries(errors).map(([field, error]) => (

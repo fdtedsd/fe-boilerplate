@@ -56,10 +56,11 @@
     "submitted": "Enviado! ✓",
     "submitting": "Enviando...",
     "errors": {
-      "nameRequired": "Nome é obrigatório",
-      "nameMin": "Nome deve ter pelo menos 2 caracteres",
-      "emailRequired": "Email é obrigatório",
-      "emailInvalid": "Email deve ter um formato válido"
+      "title": "⚠️ Erros de validação:",
+      "nameRequired": "❌ Nome é obrigatório",
+      "nameMin": "❌ Nome deve ter pelo menos 2 caracteres",
+      "emailRequired": "❌ Email é obrigatório",
+      "emailInvalid": "❌ Email deve ter um formato válido"
     },
     "preview": {
       "title": "Dados do Formulário:",
